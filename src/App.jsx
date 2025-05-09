@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import ProjectList from './components/ProjectList'
 import Login from './components/Login'
+import Notfound from './components/Notfound'
+import Post from './components/Post'
+import  Tabs  from './components/Tabs'
 
 function App() {
 
@@ -11,8 +14,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />}/>
+        <Route path='/tabs' element={<Tabs />}/>
         <Route path='/projects' element={<ProjectList />}/>
-        <Route path='*' element={<Login />}/>
+        <Route path='/post' element={<Post />}/>
+        <Route path='*' element={<Notfound />}/>
       </Routes>
     </BrowserRouter>
     </>

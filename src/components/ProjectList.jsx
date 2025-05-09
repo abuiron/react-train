@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react'
 import useFetch from './useFetch';
 import Project from './Project'
 import Loader from './Loader';
+import Notfound from './Notfound';
 
 
 function ProjectList() {
 
-    const [Projects, Dummy,error] = useFetch()
+    const [Projects, setProjects,Dummy,setDummy,error] = useFetch()
 
 
     if(!Projects) {
         return (
         <>
         {!error && <Loader />}
-        {error && <p style={{color:"red"}}>{error.message}</p>}
+        {error && <Notfound error={"Fetch Error "} />}
         </>
         )
     }
@@ -26,7 +27,7 @@ function ProjectList() {
 
 
     function Dummyhnd(){
-        setDummy(Dummy ? false : true);
+        setDummy((prev)=>!prev);
         console.log(Dummy);
     }
 
@@ -48,7 +49,7 @@ function ProjectList() {
   return (
     <>
     {projecti}
-    <button onClick={Dummyhnd}>Dummy</button>
+    <button className='btn btn-primary' onClick={Dummyhnd}>Dummy</button>
     </>
   )
 }

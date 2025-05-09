@@ -21,8 +21,8 @@ const useFetch = ()=> {
                 setError(err);
             })
         },1000)
-    })
-    return [Projects, Dummy, error];
+    },[])
+    return [Projects,setProjects, Dummy,setDummy ,error];
 }
 
 export default useFetch;

@@ -31,6 +31,10 @@ function Login() {
         }
     }
 
+    function navi() {
+      pw1 == pw2 ? navigate('/tabs') : setSame(false)
+    }
+
 
   return (
     <Form action="" className="my-5" style={{margin : "auto",width:"50%"}}>
@@ -57,7 +61,7 @@ function Login() {
 
       {!same || (pw2 && pw1)=="" ? <Form.Text className="text-muted">
           Password Not Match...
-        </Form.Text>:<Button variant="primary" onClick={()=>navigate('/projects')} >
+        </Form.Text>:<Button variant="primary" onClick={navi} >
         Submit
       </Button>}
     </Form>

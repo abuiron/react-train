@@ -24,7 +24,7 @@ function Project(props) {
         <p>${Discount}</p>
         <span>Rating : {props.rating}</span>
         {Purchased ? <p className='alr'>Successfully Purchased</p> : <button className='buy' onClick={()=> BuyProjects(20)}>Buy Now</button>}
-        <button className='disc' onClick={()=>DiscountProjects(20)}>20% Discount</button>
+        {Purchased ? <p className='disc'>Discount not available</p> : <button className='disc' onClick={()=>DiscountProjects(20)}>20% Discount</button>}
         <button className='buy dlt' onClick={()=> props.Delete(props.id)}>Delete</button>
     </div>
   )
